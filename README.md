@@ -2,7 +2,7 @@
 
 (Probabilistic, Latent) Principle Components Analysis Bayesian Householder Rotation invariant form.
 
-Copied and adapted from many sources (all credit there), especially:
+Copied and adapted from the following sources (all credit there), especially:
 
 [Rajbir S. Nirwan and Nils Bertschinger, 2019. Proceedings of the 36 th International Conference on Machine Learning, Long Beach, California, PMLR 97](https://github.com/jae0/HouseholderBPCA/blob/master/py_stan_code/ppca_house_improved.stan)
  

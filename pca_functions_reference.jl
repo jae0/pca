@@ -1,7 +1,7 @@
  
-
 # Householder transform (rotation invariant form of pPCA
-# reference (unmodified) code from: https://turing.ml/v0.21/tutorials/11-probabilistic-pca
+# this is the julia/turing reference implementation 
+# unmodified code from: https://turing.ml/v0.21/tutorials/11-probabilistic-pca
 
 function V_low_tri_plus_diag(Q::Int, V)
     for q in 1:Q

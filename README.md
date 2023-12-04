@@ -8,8 +8,8 @@ Copied and adapted from the following sources (all credit there), especially:
  
 And the [main Julia/Turing pPCA tutorial](https://turing.ml/v0.21/tutorials/11-probabilistic-pca) had done the brunt of the conversion from python/Stan.
 
-Minor changes and adaptation for my own needs.
+Minor changes and adaptation for my own needs ([species composition in marine environments and feeding networks](https://github.com/jae0/aegis)).
 
-Work flow: see [pca.md](pca.md) 
+Example work flow: see [pca.md](pca.md) 
 
-Or from R: [pca_from_R.md](pca_from_R.md)
+Or to use directly from R (you will need to install julia and required libs on your own): [pca_from_R.md](pca_from_R.md)

@@ -1,5 +1,4 @@
-# PCA Bayesian 
-
+# PCA Latent Bayesian Rotation Invariant Householder form
 
 ## set up environment and test data
 
@@ -9,7 +8,6 @@
     
     include( joinpath( project_directory, "startup.jl" ))     
     include( joinpath( project_directory, "pca_functions.jl" ))     
-
  
     # dataset available in RDatasets
     Xdata = dataset("datasets", "iris")
@@ -39,11 +37,9 @@
     @vlplot( :rect, x = "id:o", color = :value, encoding = {
         y = {field = "variable", type = "nominal", sort = "-x", axis = {title = "data"}}
         } )( DataFrames.stack(Xdata, 1:nvar) )
-      
 
 ```
 
- 
 
 ## PCA, Bayesian Householder transform to remove Rotational symmetry
 

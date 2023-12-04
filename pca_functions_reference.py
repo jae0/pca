@@ -1,5 +1,6 @@
+# sources (copied here to show the reference implementation ... not used):
 # https://github.com/jae0/HouseholderBPCA/blob/master/ubpca_improved.ipynb
-# source: https://github.com/jae0/HouseholderBPCA/blob/master/py_stan_code/ppca_house_improved.stan
+# https://github.com/jae0/HouseholderBPCA/blob/master/py_stan_code/ppca_house_improved.stan
 
 import numpy as np
 import pystan

@@ -181,6 +181,7 @@ But this creates rotationally symmetric solutions.
     @vlplot(:point, x = :z1, y = :z2, color = "type:n")(df_pca)
 ```
 
+<!--  
 #### Number of components¶
 
 A direct question arises from this is: How many dimensions do we want to keep in order to represent the latent structure in the data? This is a very central question for all latent factor models, i.e. how many dimensions are needed to represent that data in the latent space. In the case of PCA, there exist a lot of heuristics to make that choice. By using the pPCA model, this can be accomplished very elegantly, with a technique called Automatic Relevance Determination(ARD). Essentially, we are using a specific prior over the factor loadings W that allows us to prune away dimensions in the latent space. The prior is determined by a precision hyperparameter \alpha. Here, smaller values of \alpha correspond to more important components. You can find more details about this in the Bishop book mentioned in the introduction.
@@ -307,4 +308,5 @@ An example for a batch effect in this case might be different scientists using a
 
     # We can now see, that the data are better separated in the latent space by accounting for the batch effect. It is not perfect, but definitely an improvement over the previous plot.
 ```
- 
+
+-->

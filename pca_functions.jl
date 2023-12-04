@@ -1,4 +1,4 @@
-
+# These are modified from the reference implmentations 
 
 function simulated_data(nobs=60)
     # generate data (The simulation is inspired by biological measurement of expression of genes in cells, and so you can think of the two variables as cells and genes):

@@ -12,7 +12,7 @@ using VegaLite, DataFrames, StatsPlots
 using RDatasets
 
 using Random
-Random.seed!(1789);
+Random.seed!(1111);
 
 
 

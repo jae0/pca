@@ -6,12 +6,11 @@
 ```julia
     # load helper files
     project_directory = joinpath( homedir(), "bio", "pca"  )
+    
     include( joinpath( project_directory, "startup.jl" ))     
     include( joinpath( project_directory, "pca_functions.jl" ))     
 
-    # Set a seed for reproducibility.
-    Random.seed!(1);
-
+ 
     # dataset available in RDatasets
     Xdata = dataset("datasets", "iris")
     Xdata.id = Xdata.Species

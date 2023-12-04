@@ -10,3 +10,6 @@ And the [main Julia/Turing pPCA tutorial](https://turing.ml/v0.21/tutorials/11-p
 
 Minor changes and adaptation for my own needs.
 
+Work flow: see [pca.md](pca.md) 
+
+Or from R: [pca_from_R.md](pca_from_R.md)

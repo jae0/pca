@@ -209,9 +209,8 @@ end
     # parameters
     sigma_noise ~ LogNormal(0.0, 0.5)
 
-    # sigma ~ Bijectors.ordered(Exponential(1))
-    # sigma ~ Bijectors.ordered( arraydist( Normal.(s, s./5) ) )
-    # sigma ~ arraydist( Normal.(s, s./5 ) )  
+    # currently, Bijectors.ordered is broken, revert for better posteriors once it works again
+    # sigma ~ Bijectors.ordered( MvLogNormal(MvNormal(ones(nq) )) )  
     sigma ~  MvLogNormal(MvNormal(ones(nq) ))
     
     v ~ filldist(Normal(0.0, 1.0), Int(nvar * nq - nq * (nq - 1) / 2))
@@ -269,12 +268,12 @@ end
   
 
 
-function PCA_BH_extract( chain, X, nq; return_object="scores"  )
+function PCA_BH_extract( chain, X, nq, return_object  )
  
     nvar, nobs = size(X)
     n_samples,_,_ = size(chain) 
  
-    if return_object=="scores" 
+    if return_object == :scores
         # full posteriors
         sigma = PCA_BH_extract( chain, X, nq, return_object="sigma" )  # posteriors
         U = PCA_BH_extract( chain, X, nq, return_object="eigenvectors" )  # posteriors
@@ -288,7 +287,7 @@ function PCA_BH_extract( chain, X, nq; return_object="scores"  )
     end
 
     
-    if return_object=="scores_mean" 
+    if return_object == :scores_mean
         scores = PCA_BH_extract( chain, X, nq, return_object="scores" )
         scores_mean = DataFrame( convert(Array{Float64}, mean(scores, dims=3)[:,:,1])', :auto)
         rename!(scores_mean, Symbol.(["pc" * string(i) for i in collect(1:nq)]))
@@ -296,7 +295,7 @@ function PCA_BH_extract( chain, X, nq; return_object="scores"  )
     end
 
 
-    if return_object=="sigma" 
+    if return_object == :sigma
         # full posteriors
         ss = collect(get(chain, [:sigma]).sigma)
         sigma = zeros(nq, n_samples)
@@ -307,7 +306,7 @@ function PCA_BH_extract( chain, X, nq; return_object="scores"  )
     end
 
 
-    if return_object=="scores_mean" 
+    if return_object == :scores_mean
         sigma = PCA_BH_extract( chain, X, nq, return_object="sigma" )
         scores_mean = DataFrame( convert(Array{Float64}, mean(scores, dims=3)[:,:,1])', :auto)
         rename!(sigma_mean, Symbol.(["pc" * string(i) for i in collect(1:nq)]))
@@ -315,13 +314,13 @@ function PCA_BH_extract( chain, X, nq; return_object="scores"  )
     end
 
 
-    if return_object=="eigenvalues" 
+    if return_object == :eigenvalues
         eigenvalues = PCA_BH_extract( chain, X, nq, return_object="sigma" )  # posteriors
         return eigenvalues
     end
 
     
-    if return_object=="eigenvectors" 
+    if return_object == :eigenvectors
         # unscaled 
         vv = collect(get(chain, [:v]).v)
         V = zeros(Real, nvar, nq)
